@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JKVO:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JKVO_jar</output-path>
+    <root id="archive" name="JKVO.jar">
+      <element id="module-output" name="JKVO" />
+    </root>
+  </artifact>
+</component>

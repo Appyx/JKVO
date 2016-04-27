@@ -86,7 +86,7 @@ public class JKVObservable {
 			return;
 		}
 		for(JKVObserver observer : observers){
-			observer.valueDidChange(value, key);
+			observer.observeValue(value, key, JKVObserver.KVO_DID_CHANGE);
 		}
 	}
 
@@ -96,18 +96,18 @@ public class JKVObservable {
 			return;
 		}
 		for(JKVObserver observer : observers){
-			observer.valueWillChange(value, key);
+			observer.observeValue(value, key, JKVObserver.KVO_WILL_CHANGE);
 		}
 	}
 
 	/**
 	 * Always use this method to make the property observable.
 	 * Integrate this in your setter.
-	 * The returning value have to be set on the property.
+	 * The result of this method should be set on the observing property.
 	 *
 	 * @param key       The identifier
-	 * @param oldObject The old value
-	 * @param newObject The new value
+	 * @param oldObject The old value e.g. this.value
+	 * @param newObject The new value e.g. the setter parameter
 	 * @return The new value
 	 */
 	protected Object setKVOValue(String key, Object oldObject, Object newObject){

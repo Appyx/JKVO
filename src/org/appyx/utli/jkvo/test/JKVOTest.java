@@ -24,12 +24,12 @@ class JKVOTest implements JKVObserver {
 
 
 	@Override
-	public void valueWillChange(Object oldValue, String tag){
-		System.out.println("old tag: " + tag + " object: " + oldValue);
-	}
-
-	@Override
-	public void valueDidChange(Object newValue, String tag){
-		System.out.println("new tag: " + tag + " object: " + newValue);
+	public void observeValue(Object newValue, String tag, String change){
+		if(change == KVO_DID_CHANGE){
+			System.out.println(tag + " did: " + newValue);
+		}
+		if(change == KVO_WILL_CHANGE){
+			System.out.println(tag + " will: " + newValue);
+		}
 	}
 }
